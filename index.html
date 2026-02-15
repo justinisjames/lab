@@ -58,17 +58,32 @@
     .modal {
       background: #fff;
       border-radius: 16px;
-      padding: 40px;
+      padding: 32px;
       width: 100%;
-      max-width: 840px;
+      max-width: 900px;
       box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
       transform: translateY(20px) scale(0.97);
       transition: transform 0.2s ease;
+      display: flex;
+      gap: 32px;
     }
 
-    .modal-content {
-      max-width: 340px;
-      margin: 0 auto;
+    .modal-sidebar {
+      flex: 0 0 280px;
+    }
+
+    .modal-map {
+      flex: 1;
+      min-height: 500px;
+      background: #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .modal-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     .overlay.active .modal {
@@ -187,7 +202,7 @@
 
   <div class="overlay" id="overlay">
     <div class="modal">
-      <div class="modal-content">
+      <div class="modal-sidebar">
         <h2>New Entry</h2>
 
         <div class="profile-image">
@@ -214,6 +229,10 @@
           <button class="btn btn-secondary" id="saveBtn">Save as Draft</button>
           <button class="cancel-link" id="cancelBtn">Cancel</button>
         </div>
+      </div>
+
+      <div class="modal-map">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-74.02,40.70,-73.95,40.75&layer=mapnik" loading="lazy"></iframe>
       </div>
     </div>
   </div>
